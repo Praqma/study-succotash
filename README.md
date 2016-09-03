@@ -11,4 +11,8 @@ First link: https://learn.chef.io/local-development/windows/get-set-up/get-set-u
 
 
 And the repository name? Well github told me that a good name is short and memorable and suggested 'sturdy-succotash' - I removed the 'r' as this is about a _study_ in infrastructure as code :-)
-Repository will evolve, and we will find a better name later
+Repository will evolve, and we will find a better name later.
+
+Actually funny also that Chef have food names, and the github repo suggest something with succotash, which is a dish.
+
+![Picture of succotash - a dish](/images/succotash.jpg)
