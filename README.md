@@ -16,3 +16,4 @@ Repository will evolve, and we will find a better name later.
 Actually funny also that Chef have food names, and the github repo suggest something with succotash, which is a dish.
 
 ![Picture of succotash - a dish](/images/succotash.jpg)
+(Picture from foodnetwork.com)
