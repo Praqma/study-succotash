@@ -11,6 +11,12 @@ For now we are looking at Chef, not a specific reason, as both Puppet, Salt, Ans
 
 First link: https://learn.chef.io/local-development/windows/get-set-up/get-set-up-vagrant/
 
+## Chef DK 
+
+We made a Chef DK in a container, so it is easy to use the Chef DK without installing local tools.
+
+See how to build and use it here (there is yet no official images from us): [docker/praqma-docker-chefdk/README.md](/docker/praqma-docker-chefdk/README.md)
+
 ## Collaboration
 
 We will work from issue so all of us can follow and contribute, so for example please ping your colleague if you already know how the issue he/she describe or have valuable inputs.
@@ -22,10 +28,14 @@ Read:
 
 Waffle: https://waffle.io/Praqma/study-succotash
 
-Committing: We commit directly to master as this is just a note repository. Make sure to:
+Committing: Follow our workflow - there is an integration job in Jenkins defined:
 
-* reference issue
-* as much as possible deliver one commit pr. issue
+http://code.praqma.net/ci/view/All/job/study-succotash-integrate_ourchefresearch/configure
+
+Our definition of done for allowing us to integrate is nothing - we only take notes etc.
+
+* Try to commit something to docs every time you close an isuse.
+
 
 
 ## Study-succotash ?
