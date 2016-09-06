@@ -13,6 +13,8 @@ First link: https://learn.chef.io/local-development/windows/get-set-up/get-set-u
 
 ## Collaboration
 
+We will work from issue so all of us can follow and contribute, so for example please ping your colleague if you already know how the issue he/she describe or have valuable inputs.
+
 Read:
 
 * http://www.praqma.com/stories/a-pragmatic-workflow/
