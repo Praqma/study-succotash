@@ -14,3 +14,8 @@ Alternatively, see below for tests on AWS, which works out of the box.
 ## Setting up test-kitchen with AWS
 Now we're talking. By following [the learn.chef.io guide](https://learn.chef.io/local-development/windows/get-set-up/get-set-up-ec2/), you can setup test-kitchen to spin up fresh Windows instances for testing against.
 By running `kitchen create` to initialise an instance, `kitchen converge` to apply your cookbook to the instance and troubleshoot errors, `kitchen login` to open a remote desktop connection if you need to verify something and `kitchen destroy` to remove the instance, it's very easy to test your code without affecting any static systems. 
+
+## Managing dependencies with Berkshelf
+[Berkshelf](http://berkshelf.com/) is a bundler that manages cookbook dependencies. It is included in the [ChefDK](https://downloads.chef.io/chef-dk/), and is the recommended tool to use for dependency management. 
+When you initialize a cookbook, a Berkfile will most likely already be present.
+Edit your Berkfile to include the projects your cookbook depend on, run `berks install` and `berks upload` from within the cookbook folder and any dependencies will recursively be fetched and uploaded to your chef server.
