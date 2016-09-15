@@ -1,0 +1,29 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: mim-aws
+  region: eu-west-1
+  availability_zone: b
+  subnet_id: subnet-899ef6ed
+  instance_type: t2.micro
+  image_id: ami-a8592cdb
+  security_group_ids: ['sg-c6777fa1']
+  retryable_tries: 120
+
+provisioner:
+  name: chef_zero
+
+transport:
+  ssh_key: ~/.ssh/mim-aws.pem
+
+platforms:
+  - name: windows-2012r2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[windows_chocolatey_test::default]
+    verifier:
+      inspec_tests:
+        - test/recipes
+    attributes:
