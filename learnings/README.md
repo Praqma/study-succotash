@@ -53,6 +53,15 @@ Metadata is saved in the git-ignored `.kitchen` directory of a cookbook. You can
 delete that if for some reason you need to really start from scratch (say, you manually
 deleted a VirtualBox VM).
 
+### Best practices
+
+Test idempotency of cookbooks at various levels. Confirm the expected result both when
+running from scratch, but also when a machine is in a mixed state. For example, if you
+manually uninstall a software package, is it properly reinstalled? If you remove a
+downloaded file, is it properly downloaded again? If you don't, is the download or
+install skipped as you would expect? And if you run `kitchen converge` on an up-to-date
+system, do you indeed get `up-to-date` results only?
+
 ## Managing dependencies with Berkshelf
 [Berkshelf](http://berkshelf.com/) is a bundler that manages cookbook dependencies. It is included in the [ChefDK](https://downloads.chef.io/chef-dk/), and is the recommended tool to use for dependency management.
 When you initialize a cookbook, a Berkfile will most likely already be present.
