@@ -34,3 +34,4 @@ The recipe is a very simple one, [default.rb](./default.rb), and should be prett
 `berks upload` Pushes all dependencies to the server.
 
 From [chef manage](https://api.chef.io/organizations/analogic/nodes/), it is now possible to change the run list to include windows_chocolatey_test
+

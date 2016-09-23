@@ -19,11 +19,11 @@ transport:
 platforms:
   - name: windows-2012r2
 
+verifier:
+  name: inspec
+
 suites:
   - name: default
     run_list:
       - recipe[windows_chocolatey_test::default]
-    verifier:
-      inspec_tests:
-        - test/recipes
     attributes:
