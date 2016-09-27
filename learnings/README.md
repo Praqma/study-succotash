@@ -16,6 +16,8 @@ have your base image ready. On top of that, some of us have experienced that aft
 waiting, the VM might crash and rollback all updates.
 This solution works better if we have a preconfigured Windows image. But we do not have a
 way of distributing it.
+Note: To prevent the potential crash mentioned above, edit the packer file `vbox-2012r2.json` and set
+ `"headless": "true"`
 
 ## Setting up test-kitchen with AWS
 Now we're talking. By following [the learn.chef.io guide](https://learn.chef.io/local-development/windows/get-set-up/get-set-up-ec2/), you can setup test-kitchen to spin up fresh Windows instances for testing against.
@@ -89,7 +91,7 @@ also be run as part of a CI pipeline that verifies commits.
 
 There are several different frameworks that can be used for integration testing.
 [ServerSpec]() and [InSpec](https://github.com/chef/inspec) are to be two of the more popular ones.
-Chef is restructuring their tutorials to use InSpec, so it seems to be taking over. For a 
+Chef is restructuring their tutorials to use InSpec, so it seems to be taking over. For a
 simple example of an InSpec test, have a look at the windows_chocolatey_test cookbook in this repo.
 
 ## Managing dependencies with Berkshelf
