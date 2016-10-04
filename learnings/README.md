@@ -98,3 +98,57 @@ simple example of an InSpec test, have a look at the windows_chocolatey_test coo
 [Berkshelf](http://berkshelf.com/) is a bundler that manages cookbook dependencies. It is included in the [ChefDK](https://downloads.chef.io/chef-dk/), and is the recommended tool to use for dependency management.
 When you initialize a cookbook, a Berkfile will most likely already be present.
 Edit your Berkfile to include the projects your cookbook depend on, run `berks install` and `berks upload` from within the cookbook folder and any dependencies will recursively be fetched and uploaded to your chef server.
+
+## Installing Windows packages
+It seems very varied how big of a challenge it is to install programs on the Windows platform. Some installers are as simple as:
+
+```
+ # install python 2.7
+windows_package 'python 2.7' do
+  source 'https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi'
+  installer_type :msi
+  action :install
+end
+
+# add python 2.7 installation folder to path
+windows_path 'C:\Python27' do
+  action :add
+end
+```
+
+Whereas for something like the Windows Driver Package it seems to require you to open the .exe and manually clicking the options you need, with seemingly no support for silent installation.
+
+You have to examine each package for unattended installation support.
+
+Another sample for inspiration - Installing a package delivered as a WinZip self-extract archive:
+
+```
+# Download exe/zip file
+remote_file zip_path do
+  source node['my_software'][version]['url']
+  checksum node['my_software'][version]['sha256']
+end
+
+# Extract zip file using PowerShell 4.0 (PowerShell 5 has unzip, but is not on Win 2012)
+powershell_script 'extract-zip' do
+  code <<-EOF
+  [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
+  [System.IO.Compression.ZipFile]::ExtractToDirectory("#{zip_path}", "#{extract_dir}")
+  EOF
+  creates extract_dir
+end
+
+windows_package 'package-name-to-ensure-idempotency' do
+  source "#{extract_dir}/setup.exe"
+  installer_type :custom
+
+  options '/q' # etc.. the silent install options
+
+  # The installer initiates a reboot. 1641 is the value of the
+  # Windows Installer code ERROR_SUCCESS_REBOOT_INITIATED.
+  returns [1641]
+end
+```
+Be sure to checkout the [Windows Cookbook](https://github.com/chef-cookbooks/windows) for additional information and helper functions.
+
+Also note that the ```Knife``` tool is warning that the ```Windows_package``` will be deprecated in later versions, implying that the ```package``` will handle package installation on all platforms.
