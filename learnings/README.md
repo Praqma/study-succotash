@@ -1,5 +1,10 @@
 # Lessons learned
 
+This document describes lessons learned. In addition, look at these documents:
+
+- [Links](links.md)
+- [Using the knife command](knife.md)
+
 ## ERROR: OpenSSL::PKey::RSAError: private key needed.
 This message indicates that you need to reset your key on the chef server:
 * Go to your chef server, Administration, Users, Reset key
