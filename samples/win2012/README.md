@@ -23,7 +23,9 @@ Note that by default the virtual machine will be given the ip address: 192.168.3
 run vagrant up, and wait while vagrant prepares the virtual machine
 
 ### Bootstrap Chef:
-  knife bootstrap windows winrm win2012r2.local --winrm-user vagrant --winrm-password 'vagrant' --node-name node1-win2012r2
+```
+knife bootstrap windows winrm win2012r2.local --winrm-user vagrant --winrm-password 'vagrant' --node-name node1-win2012r2
+```
 
 ### Verify properties
 Examine the properties of the registered node
