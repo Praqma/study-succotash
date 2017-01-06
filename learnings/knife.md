@@ -41,3 +41,28 @@ For local testing without Internet access to the public Chef Supermarket, you ne
 `%USERPROFILE%\.berkshelf\cookbooks`. If the cookbook is on your Chef Server, you can download it with `knife`.
 
 Use `knife cookbook download` instead of `knife download cookbook`, for the same reason as with `uplod` above.
+
+## Data bags
+
+- Created using `knife data bag create bag-name bag-item-name`.
+- But if you omit a data bag item, it will create an empty data bag, and you cannot use `knife` to add an item
+  to an existing data bag.
+- You must set an `EDITOR` environment variable. If you don't, the above command will create an empty data bag and then
+  fail when adding an item.
+
+```sh
+> knife data bag create licenses productx
+Created data_bag[licenses]
+ERROR: RuntimeError: Please set EDITOR environment variable
+```
+
+- The `EDITOR` variable cannot contain spaces or else it should be enclosed in quotes. If the value is invalid,
+  you will just get the same error as above.
+- As opposed to up/downloading cookbooks, for data bags you have to use the `knife upload` command.
+- You download a data bags using this syntax. Notice that you have to enter a `data_bags` directory first.
+  This is because of a base file path that can be seen if you run `knife download` with `-VV`:
+
+```sh
+> cd data_bags
+> knife download /data_bags/bag-name
+```
