@@ -8,7 +8,7 @@ This approach is a mix of leaving a trace of our work in git in the form of a RE
 
   Example
 
-    knife vault create secret_vault slave_private_key  -A 'tkiss,bpetersen'
+    knife vault create secret_vault slave_private_key  -A 'timea,bue'
 
 This will create a folder in your chef-repo in the data_bags folder called <vault_name>. This folder contains 2 files <data_item_name>.json and <data_item_name>\_keys.json. The first file contains information you can find on the chef server about the <data_item_name>. The second file contains generated keys for all the admins or clients you added to your vault with the -A option. This is information that can change without being committed in git, opening the door to confusion, so please delete that one too.
 
@@ -38,7 +38,7 @@ During the upload the plain text data in your json is being encrypted with a ran
 
   Example
 
-    knife vault create my_vault my_secret_store --json ./my_secret_store.json --mode client -A 'tkiss,bpetersen'
+    knife vault create my_vault my_secret_store --json ./my_secret_store.json --mode client -A 'timea,bue'
 
 6) Placeholders - delete the secrets and put placeholders in your local json file.
 
@@ -50,4 +50,4 @@ During the upload the plain text data in your json is being encrypted with a ran
 
   Example
 
-    knife vault update bk-credentials builds_slave -A "tkiss" -M client
+    knife vault update my_vault my_secret_store -A "jan" -M client

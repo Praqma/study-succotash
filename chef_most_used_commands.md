@@ -26,7 +26,7 @@ In order to let the knife CLI to find your knife config (aka find your chef serv
 
   Example
 
-    knife bootstrap windows winrm jenkins_slave_node --winrm-user JenkinsSlave --winrm-password <password> --node-name jenkins_slave_node --run-list slave_ssh_keypair
+    knife bootstrap windows winrm jenkins_slave_node --winrm-user jenkins_user --winrm-password <password> --node-name jenkins_slave_node --run-list slave_ssh_keypair
 
 ## Create cookbook
 
@@ -56,7 +56,7 @@ In order to let the knife CLI to find your knife config (aka find your chef serv
 
   Example
 
-    knife winrm jenkins_slave_node chef-client --manual-list --winrm-user JenkinsSlave --winrm-password <password>
+    knife winrm jenkins_slave_node chef-client --manual-list --winrm-user jenkins_user --winrm-password <password>
 
 ## Add a cookbook to a runlist of a node
 
