@@ -1,0 +1,6 @@
+default['ubuntu']['database']['dbname'] = 'olhus'
+default['ubuntu']['database']['host'] = '127.0.0.1'
+default['ubuntu']['database']['root_username'] = 'root'
+default['ubuntu']['database']['root_password'] = ''
+default['ubuntu']['database']['jenkins_username'] = 'jenkins'
+default['ubuntu']['database']['jenkins_password'] = ''

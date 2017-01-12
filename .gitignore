@@ -2,3 +2,4 @@
 .vagrant/
 .delivery/
 **/syntaxcache/
+.DS_Store
