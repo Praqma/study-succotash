@@ -1,3 +1,8 @@
+---
+maintainer: buep
+---
+
+
 # study-succotash
 
 ## About
